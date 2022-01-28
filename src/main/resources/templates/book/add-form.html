@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+                     xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Dodaj książkę</h1>
+<form action="/book/add" method="post">
+    <label for="title">Tytuł</label><br>
+    <input type="text" name="title" id="title"> <br>
+    <span th:if="${#fields.hasErrors('title')}"
+          th:errors="*{title}"></span>
+
+    <label for="authors">Autorzy</label><br>
+    <input type="text" name="authors" id="authors"> <br>
+    <span th:if="${#fields.hasErrors('authors')}"
+          th:errors="*{authors}"></span>
+
+    <label for="price">Cena</label><br>
+    <input type="number" name="price" id="price"> <br>
+    <span th:if="${#fields.hasErrors('price')}"
+          th:errors="*{price}"></span>
+
+    <label for="isbn">ISBN</label><br>
+    <input type="text" name="isbn" id="isbn"> <br>
+    <span th:if="${#fields.hasErrors('isbn')}"
+          th:errors="*{isbn}"></span>
+
+    <label for="publishingYear">Rok wydania</label><br>
+    <input type="number" name="publishingYear" id="publishingYear"> <br>
+    <span th:if="${#fields.hasErrors('publishingYear')}"
+          th:errors="*{publishingYear}"></span>
+
+    <label for="publisher">Wydawnictwo</label><br>
+    <input type="text" name="publisher" id="publisher"> <br>
+    <span th:if="${#fields.hasErrors('publisher')}"
+          th:errors="*{publisher}"></span>
+
+    <label for="firstEdition">Czy pierwsze wydanie</label><br>
+    <input type="checkbox" name="firstEdition" id="firstEdition"> <br>
+
+
+    <button type="submit">Zapisz</button>
+</form>
+</body>
+</html>

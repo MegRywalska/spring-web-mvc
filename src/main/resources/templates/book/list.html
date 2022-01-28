@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List książek</title>
+</head>
+<body>
+<h1>Lista książek</h1>
+<h3 th:text="|Liczba książek: ${books.size()}|"></h3>
+<a href="/book/add-form">Dodaj następną książkę</a>
+<table>
+    <thead>
+    <tr>
+        <th>Tytuł</th>
+        <th>Autor</th>
+        <th>ISBN</th>
+        <th>Czy pierwsze wydanie?</th>
+        <th>Cena</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="book:${books}">
+        <td th:text="${book.title}">
+        </td>
+        <td th:text="${book.authors}"></td>
+        <td th:text="${book.isbn}"></td>
+        <td th:text="${book.firstEdition}"></td>
+                <td>
+                    <samp>th:if="${book.price != 0 }" th:text="${book.price}"</samp>
+                    <samp>th:unless=$book.price != 0" >Za darmo</samp> // unless jest zprzeczeniem warunku u góry, lepiej dać go niż 2 if, mniejsza szansa na błąd
+
+                </td>
+
+            </tr>
+
+        </tbody>
+    </table>
+
+</body>
+</html>

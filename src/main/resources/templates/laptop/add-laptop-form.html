@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Dodaj Laptopa</h1>
+
+<form th:object="${laptop}" th:action="@{/laptop/add}" method="post">
+    <label for="name">Nazwa</label>
+    <input type="name" th:field = "*{name}"><br>
+
+    <label for="price">Cena</label>
+    <input type="price" th:field = "*{price}"><br>
+
+    <label for="memory">Pojemność RAM</label>
+    <input type="memory" th:field = "*{memory}"><br>
+
+    <label for="processor">Procesor </label>
+    <input type="processor" th:field = "*{processor}"><br>
+
+<button type="submit">Zapisz</button>
+</form>
+
+</body>
+</html>
